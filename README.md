@@ -1,4 +1,4 @@
-## metagear package
+## metagear package <img src="http://lajeunesse.myweb.usf.edu/images/metagear_R_package.PNG" align="right" height = 150/>
 
 ### purpose of the metagear package
 **metagear** is a comprehensive, multifunctional toolbox with capabilities aimed to cover much of the research synthesis taxonomy: from applying a systematic review approach to objectively assemble and screen the literature, to extracting data from studies, and to finally summarize and analyze these data with the statistics of meta-analysis. More information about metagear can be found at [http://lajeunesse.myweb.usf.edu](http://lajeunesse.myweb.usf.edu).
