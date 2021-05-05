@@ -18,14 +18,16 @@
 #'
 #' @seealso \link{figure_detectAllPoints}
 #' 
-#' @importFrom EBImage makeBrush opening watershed distmap
-#'    rmObjects computeFeatures.shape computeFeatures.moment
 #' @export
 
 figure_detectAxis <- function (aBinaryPlot,
                                axis_type = "X",
                                axis_thickness = 5,
                                sensitivity = 0.2) {
+							   
+  # if EBImage not installed, do it
+  .metagearDependencies("EBImage")
+
   
   # assign proper line angle for axis detection
   theAngle <- switch(axis_type,
@@ -59,21 +61,21 @@ figure_detectAxis <- function (aBinaryPlot,
                                 watershed_sensitivity = 0.2) {
   
   # repaint plot with only lines visible
-  lineBrush <- makeBrush(watershed_thickness, shape = "line", angle = theAngle)
-  aPaintedPlot <- opening(distmap(aBinaryPlot), lineBrush)
+  lineBrush <- EBImage::makeBrush(watershed_thickness, shape = "line", angle = theAngle)
+  aPaintedPlot <- EBImage::opening(EBImage::distmap(aBinaryPlot), lineBrush)
   
   # detect all vertical lines
-  aDetectedPlot <- watershed(distmap(aPaintedPlot), watershed_sensitivity) 
+  aDetectedPlot <- EBImage::watershed(EBImage::distmap(aPaintedPlot), watershed_sensitivity) 
   
   # eliminate all but the longest straight line (assuming it's the axis)
-  theLines <- computeFeatures.shape(aDetectedPlot)
+  theLines <- EBImage::computeFeatures.shape(aDetectedPlot)
   exclusionList <- which(theLines[, "s.area"] != max(theLines[, "s.area"]))
-  aDetectedPlot <- rmObjects(aDetectedPlot, exclusionList)
+  aDetectedPlot <- EBImage::rmObjects(aDetectedPlot, exclusionList)
   
   # if multiple long lines of same size exist, pick according 
   # to angle (i.e. X or Y axis detected) and position on figure (assuming
   # bottom-most for X or left-most for Y will be the correct axis)
-  theCoordinates <- computeFeatures.moment(aDetectedPlot)
+  theCoordinates <- EBImage::computeFeatures.moment(aDetectedPlot)
  
  if(theAngle == 0) {
     exclusionList <- which(theCoordinates[, "m.cy"] != 
@@ -83,7 +85,7 @@ figure_detectAxis <- function (aBinaryPlot,
     exclusionList <- which(theCoordinates[, "m.cx"] != 
                            min(theCoordinates[, "m.cx"]))
   }
-  aDetectedPlot <- rmObjects(aDetectedPlot, exclusionList)
+  aDetectedPlot <- EBImage::rmObjects(aDetectedPlot, exclusionList)
   
   # returns EBImage object with boundary coordinates of detected axis
   return(aDetectedPlot)

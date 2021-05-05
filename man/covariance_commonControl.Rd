@@ -5,8 +5,17 @@
 \title{Generates a sampling variance-covariance matrix for modeling dependencies
 among effect sizes due to sharing a common control.}
 \usage{
-covariance_commonControl(aDataFrame, control_ID, X_t, SD_t, N_t, X_c, SD_c, N_c,
-  metric = "RR")
+covariance_commonControl(
+  aDataFrame,
+  control_ID,
+  X_t,
+  SD_t,
+  N_t,
+  X_c,
+  SD_c,
+  N_c,
+  metric = "RR"
+)
 }
 \arguments{
 \item{aDataFrame}{A data frame containing columns with all study parameters
@@ -66,4 +75,3 @@ ratios (see Lajeunesse 2011).
 Lajeunesse, M.J. 2011. On the meta-analysis of response ratios 
    for studies with correlated and multi-group designs. Ecology 92: 2049-2055.
 }
-

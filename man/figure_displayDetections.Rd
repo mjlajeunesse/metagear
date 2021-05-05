@@ -4,8 +4,12 @@
 \alias{figure_displayDetections}
 \title{Displays the detected figure objects.}
 \usage{
-figure_displayDetections(aDetectedPlot, background = NULL, color = "red",
-  ignore = FALSE)
+figure_displayDetections(
+  aDetectedPlot,
+  background = NULL,
+  color = "red",
+  ignore = FALSE
+)
 }
 \arguments{
 \item{aDetectedPlot}{A binary figure image with detected objects
@@ -26,4 +30,3 @@ A RGB \code{EBImage} painted with detected figure objects.
 Generates a raster image of a figure with the detected objects painted on a 
    background/reference figure.
 }
-

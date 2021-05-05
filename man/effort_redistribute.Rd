@@ -4,9 +4,16 @@
 \alias{effort_redistribute}
 \title{Redistributes title/abstract screening efforts among a review team.}
 \usage{
-effort_redistribute(aDataFrame, column_name = "REVIEWERS", reviewer = NULL,
-  remove_effort = 100, reviewers = NULL, effort = NULL,
-  save_split = FALSE, directory = getwd())
+effort_redistribute(
+  aDataFrame,
+  column_name = "REVIEWERS",
+  reviewer = NULL,
+  remove_effort = 100,
+  reviewers = NULL,
+  effort = NULL,
+  save_split = FALSE,
+  directory = getwd()
+)
 }
 \arguments{
 \item{aDataFrame}{A data.frame containing the titles and abstracts to be 
@@ -48,4 +55,3 @@ Randomly re-distributes screening tasks from one reviewers to the rest of the
 reviewing team.  Used when screening effort needs to be re-allocated among
 reviewing team members.
 }
-

@@ -4,8 +4,7 @@
 \alias{random_N}
 \title{Random generation of sample sizes (N) for study outcomes.}
 \usage{
-random_N(K, method = "NegativeBinomial", mean = 15, min = 3,
-  NB_size = 15)
+random_N(K, method = "NegativeBinomial", mean = 15, min = 3, NB_size = 15)
 }
 \arguments{
 \item{K}{Number of sample sizes to generate.}
@@ -33,4 +32,3 @@ A vector of random sample sizes (N).
 Generates random sample sizes (N) by either sampling from a Negative Binomial 
    or Poisson distribution.
 }
-

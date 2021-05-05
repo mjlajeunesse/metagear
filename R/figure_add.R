@@ -18,13 +18,15 @@
 #' @seealso \link{figure_detectAllPoints}
 #' 
 #' @import grid
-#' @importFrom EBImage readImage
 #' @importFrom grDevices rgb col2rgb
 #' @export
 
 figure_add <- function (file = file.choose(),
                         color = "#009900",
                         size = 0.03) {
+						
+  # if EBImage not installed, do it
+  .metagearDependencies("EBImage")
 
   # set up grid window
   grid.newpage()
@@ -32,7 +34,7 @@ figure_add <- function (file = file.choose(),
   pushViewport(vp)
 
   # plot figure image on vp
-  grid.raster(ifelse(class(file) == "Image", file, readImage(file)))
+  grid.raster(ifelse(class(file) == "Image", file, EBImage::readImage(file)))
 
   # plot exit box on figure
   grid.rect(x = 0.05, 

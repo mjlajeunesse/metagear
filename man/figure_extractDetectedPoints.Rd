@@ -4,9 +4,16 @@
 \alias{figure_extractDetectedPoints}
 \title{Extracts data points from a detected image.}
 \usage{
-figure_extractDetectedPoints(aDetectedPlot, xAxis = NULL, yAxis = NULL,
-  X_min = NULL, X_max = NULL, Y_min = NULL, Y_max = NULL,
-  summarize = TRUE)
+figure_extractDetectedPoints(
+  aDetectedPlot,
+  xAxis = NULL,
+  yAxis = NULL,
+  X_min = NULL,
+  X_max = NULL,
+  Y_min = NULL,
+  Y_max = NULL,
+  summarize = TRUE
+)
 }
 \arguments{
 \item{aDetectedPlot}{A binary figure image with detected points (an 
@@ -36,4 +43,3 @@ A data frame with the extracted X and Y values.
 \description{
 Extracts raw X and Y data from the points detected in a scatter-plot figure.
 }
-
